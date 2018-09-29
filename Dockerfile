@@ -1,8 +1,8 @@
-FROM node:8.11.4-alpine
+FROM node:8.12.0-alpine
 
 LABEL maintainer "inotom"
 LABEL title="wp-dev"
-LABEL version="1"
+LABEL version="2"
 LABEL description="WordPress/Node.js development environment with Docker"
 
 ENV HOME=/home/app
