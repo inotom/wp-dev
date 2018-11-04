@@ -1,8 +1,8 @@
-FROM node:8.12.0-alpine
+FROM node:10.13.0-alpine
 
 LABEL maintainer "inotom"
 LABEL title="wp-dev"
-LABEL version="2"
+LABEL version="3"
 LABEL description="WordPress/Node.js development environment with Docker"
 
 ENV HOME=/home/app
@@ -19,8 +19,8 @@ RUN \
   && useradd --user-group --create-home --shell /bin/false app \
   && echo "app ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
   && curl -sS https://getcomposer.org/installer | php7 -- --install-dir=/usr/local/bin --filename=composer \
-  && composer global require squizlabs/php_codesniffer:3.2.\* \
-  && git clone -b 1.0.0 https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards.git /usr/local/etc/wpcs \
+  && composer global require squizlabs/php_codesniffer:3.3.\* \
+  && git clone -b 1.1.0 https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards.git /usr/local/etc/wpcs \
   && phpcs --config-set installed_paths /usr/local/etc/wpcs
 
 WORKDIR $HOME/work
